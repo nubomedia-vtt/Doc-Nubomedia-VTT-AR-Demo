@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developers Guide &mdash; Nubomedia-VTT-AR-Demo 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Nubomedia-VTT-AR-Demo 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Installation Guide" href="InstallationGuide.html"/>
+        <link rel="prev" title="Readme" href="README.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Nubomedia-VTT-AR-Demo
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Readme</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Developers Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#source-setup">Source Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#details-of-the-demo">Details of the Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kurentoclient">KurentoClient</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InstallationGuide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="License.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Nubomedia-VTT-AR-Demo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Developers Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/DevelopersGuide.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developers-guide">
+<h1>Developers Guide<a class="headerlink" href="#developers-guide" title="Permalink to this headline">¶</a></h1>
+<p>This document describes details of the ArDemo that utilizes
+<a class="reference external" href="https://github.com/nubomedia-vtt/armodule">ARModule</a></p>
+<div class="section" id="source-setup">
+<h2>Source Setup<a class="headerlink" href="#source-setup" title="Permalink to this headline">¶</a></h2>
+<p>The default directory where the demo is installed is the following:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>~/nubomedia/armoduledemos/ar3d
+</pre></div>
+</div>
+<p>Fetch the source etc:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>git clone https://github.com/nubomedia-vtt/armoduledemos.git
+cd ~/nubomedia/armoduledemos/ar3d
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install -y nodejs
+sudo npm install -g bower
+bower --config.analytics=false install --allow-root
+mv bower_components src/main/resources/static/
+</pre></div>
+</div>
+</div>
+<div class="section" id="details-of-the-demo">
+<h2>Details of the Demo<a class="headerlink" href="#details-of-the-demo" title="Permalink to this headline">¶</a></h2>
+<p>Ar3D Kurento Client gets the data that is passes to the filter as json
+either from the browser ie javascipt or from the file system For this
+demo the default json data is gotten from the browser if you execute:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>mvn compile exec:java -Dexec.mainClass=&quot;fi.vtt.nubomedia.kurento.Ar3DApp&quot;
+</pre></div>
+</div>
+<p>But json data is gotten from the file system if executed with a valid
+json file eg
+<a class="reference external" href="https://github.com/nubomedia-vtt/armoduledemos/blob/master/ar3d/local.json">local.json</a></p>
+<div class="code bash highlight-python"><div class="highlight"><pre>mvn compile exec:java -Dexec.mainClass=&quot;fi.vtt.nubomedia.kurento.Ar3DApp&quot; -Dexec.args=&quot;local.json&quot;
+</pre></div>
+</div>
+<p>Ar3D Kurento Client passes data related to the augmentation via
+key-value pairs eg {”model”, ”/opt/cube.ply”}, {”scale”, 0.5f}. This is
+described in kmd of the ARModule
+<a class="reference external" href="https://github.com/nubomedia-vtt/armodule/blob/master/ar-markerdetector/src/server/interface/armarkerdetector.ArMarkerdetector.kmd.json">armarkerdetector.ArMarkerdetector.kmd.json</a>
+Please refer to this kmd to find out more about the syntax of json
+currently in use.</p>
+<p>The models, images etc are loaded from the file system or via URL.</p>
+<p>Thus, please check that the paths/URLs are correct ie that eg
+/opt/cube.ply is readable.</p>
+<p>An example about the syntax</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>&#39;{&quot;id&quot;:0, &quot;type&quot;:&quot;3D&quot;, &quot;strings&quot;:[{&quot;model&quot;:&quot;/opt/faerie.md2&quot;}, {&quot;texture&quot;:&quot;/opt/faerie2.bmp&quot;}], &quot;floats&quot;:[{&quot;scale&quot;:0.09}]},
+</pre></div>
+</div>
+<div class="code bash highlight-python"><div class="highlight"><pre>&quot;id&quot;:0 = Alvar Marker 0 ie Zero Marker
+</pre></div>
+</div>
+<div class="code bash highlight-python"><div class="highlight"><pre>&quot;type&quot;:&quot;3D&quot; = render as 3D model (2D for flat models)
+</pre></div>
+</div>
+<div class="code bash highlight-python"><div class="highlight"><pre>&quot;model&quot;:&quot;/opt/faerie.md2&quot; = 3D model that to be rendered
+</pre></div>
+</div>
+<div class="code bash highlight-python"><div class="highlight"><pre>&quot;texture&quot;:&quot;/opt/faerie2.bmp&quot; = texture for the 3D model in md2 format
+</pre></div>
+</div>
+<div class="code bash highlight-python"><div class="highlight"><pre>&quot;scale&quot;:0.09} = scaling of the 3D model
+</pre></div>
+</div>
+</div>
+<div class="section" id="kurentoclient">
+<h2>KurentoClient<a class="headerlink" href="#kurentoclient" title="Permalink to this headline">¶</a></h2>
+<p>The API for Kurento Client to communicate with the AR filter is
+available at:
+<a class="reference external" href="https://github.com/nubomedia-vtt/armodule/blob/master/ar-markerdetector/src/server/interface/armarkerdetector.ArMarkerdetector.kmd.json">https://github.com/nubomedia-vtt/armodule/blob/master/ar-markerdetector/src/server/interface/armarkerdetector.ArMarkerdetector.kmd.json</a></p>
+<p>Basically, the following functionality is available:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>ArMarkerdetector arFilter = new ArMarkerdetector.Builder(pipeline).build();
+arFilter.setArThing(...);
+arFilter.enableAugmentation(false/true);
+arFilter.setMarkerPoseFrequency(false/true, 1);
+arFilter.setMarkerPoseFrameFrequency(false/true, 10);
+arFilter.enableMarkerCountEvents(false/true);
+arFilter.addMarkerCountListener(...);
+arFilter.addMarkerPoseListener(...);
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="InstallationGuide.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="README.html" class="btn btn-neutral" title="Readme" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Markus Ylikerälä.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
