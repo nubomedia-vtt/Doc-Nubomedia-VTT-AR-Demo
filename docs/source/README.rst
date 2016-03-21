@@ -6,7 +6,9 @@ Readme
 This project is part of NUBOMEDIA
 `www.nubomedia.eu <http://www.nubomedia.eu>`__
 
-========================= This document describes how to utilize the
+========================= 
+
+This document describes how to utilize the
 `ARModule <https://github.com/nubomedia-vtt/armodule>`__
 
 Some material that can be utilized is given at the end.
