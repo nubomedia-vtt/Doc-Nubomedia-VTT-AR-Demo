@@ -148,12 +148,12 @@ filter with this sample application.</p>
 <p>It is assumed that the sample application will be installed to the same
 host where KMS is installed. Otherwise change the code of ar3d.</p>
 <p><strong>Installing</strong></p>
-<p>Fetch and execute the installation script:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>wget -N https://github.com/nubomedia-vtt/armoduledemos/raw/master/install_ar3d.sh
-chmod u+x ./install_ar3d.sh
-./install_ar3d.sh
-</pre></div>
-</div>
+<p>Execute the following commands if not already done:</p>
+<p>sudo apt-get install xinit -y
+sudo apt-get install git -y
+sudo apt-get install maven2 -y
+sudo apt-get install libsoup2.4-dev -y
+sudo apt-get install openjdk-7-jdk -y</p>
 <p><strong>For Ubuntu Server Users</strong></p>
 <p>Run X:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre><span class="n">xinit</span>
@@ -185,10 +185,22 @@ utilizing Ubuntu Server installation this is not an issue.</p>
 <div class="section" id="artifact">
 <h3>Artifact<a class="headerlink" href="#artifact" title="Permalink to this headline">¶</a></h3>
 <p><strong>On the server side</strong></p>
-<p>Fetch artifact and execute it:</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>wget -nd http://ssi.vtt.fi/ar-markerdetector-binaries/ar-markerdetector_0.0.6~rc1_java/armarkerdetector-6.1.0.jar
-wget -nd http://ssi.vtt.fi/ar-markerdetector-binaries/ar-markerdetector_0.0.6~rc1_java/keystore.jks
-java -jar armarkerdetector-6.1.0.jar
+<p>To install Java interface to arfilter, fetch artifact with artifactId arfilter from Maven Central Repository and install it:</p>
+<p><a class="reference external" href="http://search.maven.org/">http://search.maven.org/</a></p>
+<p>Install the arfilter artifact, eg:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=arfilter-1.0.0.jar
+</pre></div>
+</div>
+<p>You can also install JavaScript interface:</p>
+<p>bower install fi-vtt-nubomedia-kurento-module-armarkerdetector</p>
+<p>Fetch keystore:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>wget -nd http://ssi.vtt.fi/ar-markerdetector-binaries/demo/keystore.jks
+</pre></div>
+</div>
+<p>Fetch artifact with artifactId arfilterdemo from Maven Central Repository:</p>
+<p><a class="reference external" href="http://search.maven.org/">http://search.maven.org/</a></p>
+<p>Execute artifact:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>java -jar arfilterdemo-1.0.1.jar
 </pre></div>
 </div>
 <p><strong>On the client side</strong></p>

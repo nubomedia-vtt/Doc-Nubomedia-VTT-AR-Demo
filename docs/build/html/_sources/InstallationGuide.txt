@@ -16,13 +16,17 @@ host where KMS is installed. Otherwise change the code of ar3d.
 
 **Installing**
 
-Fetch and execute the installation script:
+Execute the following commands if not already done:
 
 .. code:: bash
 
-    wget -N https://github.com/nubomedia-vtt/armoduledemos/raw/master/install_ar3d.sh
-    chmod u+x ./install_ar3d.sh
-    ./install_ar3d.sh
+sudo apt-get install xinit -y
+sudo apt-get install git -y
+sudo apt-get install maven2 -y
+sudo apt-get install libsoup2.4-dev -y
+sudo apt-get install openjdk-7-jdk -y
+
+
 
 **For Ubuntu Server Users**
 
@@ -70,13 +74,46 @@ Artifact
 
 **On the server side**
 
-Fetch artifact and execute it:
+To install Java interface to arfilter, fetch artifact with artifactId arfilter from Maven Central Repository and install it:
 
 .. code:: bash
 
-    wget -nd http://ssi.vtt.fi/ar-markerdetector-binaries/ar-markerdetector_0.0.6~rc1_java/armarkerdetector-6.1.0.jar
-    wget -nd http://ssi.vtt.fi/ar-markerdetector-binaries/ar-markerdetector_0.0.6~rc1_java/keystore.jks
-    java -jar armarkerdetector-6.1.0.jar
+http://search.maven.org/
+
+.. code:: bash
+
+Install the arfilter artifact, eg:
+
+.. code:: bash
+
+ mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=arfilter-1.0.0.jar
+
+You can also install JavaScript interface:
+
+.. code:: bash
+
+bower install fi-vtt-nubomedia-kurento-module-armarkerdetector
+
+Fetch keystore:
+
+.. code:: bash
+
+    wget -nd http://ssi.vtt.fi/ar-markerdetector-binaries/demo/keystore.jks
+
+
+Fetch artifact with artifactId arfilterdemo from Maven Central Repository:
+
+.. code:: bash
+
+http://search.maven.org/
+
+
+Execute artifact:
+
+.. code:: bash
+
+    java -jar arfilterdemo-1.0.1.jar
+
 
 **On the client side**
 
