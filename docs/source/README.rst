@@ -13,6 +13,17 @@ This document describes how to utilize the
 
 Some material that can be utilized is given at the end.
 
+
+**Artifacts**
+
+Maven Central:
+http://repo1.maven.org/maven2/fi/vtt/nubomedia/arfilter/
+http://repo1.maven.org/maven2/fi/vtt/nubomedia/kurento/arfilterdemo/
+
+Npm:
+https://www.npmjs.com/package/fi-vtt-nubomedia-kurento-module-armarkerdetector
+
+
 **On the Server Side**
 
 To lauch the test program clone this repository and execute
