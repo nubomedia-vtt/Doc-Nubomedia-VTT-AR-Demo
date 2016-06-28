@@ -54,6 +54,19 @@ On some environments, for some reason, it has been reported that since
 KMSv6 screen can get partially or totally blank. But if you are
 utilizing Ubuntu Server installation this is not an issue.
 
+Finally, instead of xinit, there is the following alternative:
+
+.. code:: bash
+
+	  sudo apt-get install xserver-xorg-video-dummy 
+	  wget xpra.org/xorg.conf 
+	  Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./0.log -config ./xorg.conf :0
+
+If you have problems with port, just try another eg:
+
+.. code:: bash
+	  Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./10.log -config ./xorg.conf :10
+
 Models
 ------
 

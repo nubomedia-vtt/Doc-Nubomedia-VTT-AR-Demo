@@ -171,6 +171,13 @@ sudo apt-get install openjdk-7-jdk -y</p>
 <p>On some environments, for some reason, it has been reported that since
 KMSv6 screen can get partially or totally blank. But if you are
 utilizing Ubuntu Server installation this is not an issue.</p>
+<p>Finally, instead of xinit, there is the following alternative:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>sudo apt-get install xserver-xorg-video-dummy
+wget xpra.org/xorg.conf
+Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./0.log -config ./xorg.conf :0
+</pre></div>
+</div>
+<p>If you have problems with port, just try another eg:</p>
 <div class="section" id="models">
 <h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
 <p>Copy some sample models from:</p>
