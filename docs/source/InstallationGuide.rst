@@ -65,6 +65,7 @@ Finally, instead of xinit, there is the following alternative:
 If you have problems with port, just try another eg:
 
 .. code:: bash
+
 	  Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./10.log -config ./xorg.conf :10
 
 Models
