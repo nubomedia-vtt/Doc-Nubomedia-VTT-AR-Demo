@@ -53,7 +53,7 @@ Material
 
 **Augmented Models**
 
-Some models can be found eg from
+Some models can be found eg from:
 `models <https://github.com/nubomedia-vtt/armoduledemos/tree/master/Models>`__
 
 **Licensing and distribution**
