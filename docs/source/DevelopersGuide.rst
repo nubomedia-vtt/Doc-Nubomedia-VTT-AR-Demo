@@ -62,7 +62,7 @@ An example about the syntax
 
 .. code:: bash
 
-      '{"id":0, "type":"3D", "strings":[{"model":"/opt/faerie.md2"}, {"texture":"/opt/faerie2.bmp"}], "floats":[{"scale":0.09}]},
+      '{"markerId":0, "overlayType":"TYPE3D", "strings":[{"key":"model", "value":"/opt/faerie.md2"}, {"key":"texture", "value":"/opt/faerie2.bmp"}], "floats":[{"key":"scale", "value":0.09}]},
 
 .. code:: bash
 
